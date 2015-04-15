@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="find_address_string">"Find Address in Contacts"</string>
+    <string name="no_address_string">"This contact has no address"</string>
+
+</resources>

@@ -1,0 +1,725 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 40894464 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2798), pid=2704, tid=1603271488
+#
+# JRE version: OpenJDK Runtime Environment (7.0_75-b13) (build 1.7.0_75-b13)
+# Java VM: OpenJDK Server VM (24.75-b04 mixed mode linux-x86 )
+# Derivative: IcedTea 2.5.4
+# Distribution: Custom build (Fri Jan 23 12:16:03 UTC 2015)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x5f910400):  VMThread [stack: 0x5f87f000,0x5f900000] [id=2709]
+
+Stack: [0x5f87f000,0x5f900000]
+VM_Operation (0x5e1ac7e4): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x5e771800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x09364400 JavaThread "process reaper" daemon [_thread_blocked, id=2730, stack(0x5dfe5000,0x5e000000)]
+  0x092e3000 JavaThread "File lock request listener" [_thread_in_native, id=2728, stack(0x5de45000,0x5de96000)]
+  0x0911bc00 JavaThread "Stdin handler" [_thread_blocked, id=2726, stack(0x5e10d000,0x5e15e000)]
+  0x5e771800 JavaThread "Daemon worker" [_thread_blocked, id=2723, stack(0x5e15e000,0x5e1af000)]
+  0x629c0000 JavaThread "Cancel handler" [_thread_blocked, id=2722, stack(0x5e1af000,0x5e200000)]
+  0x629f5c00 JavaThread "Handler for socket connection from /127.0.0.1:41788 to /127.0.0.1:61565" [_thread_in_native, id=2721, stack(0x5e30d000,0x5e35e000)]
+  0x090dd000 JavaThread "Daemon" [_thread_blocked, id=2720, stack(0x5e35e000,0x5e3af000)]
+  0x5e2eb800 JavaThread "Incoming local TCP Connector on port 41788" [_thread_in_native, id=2719, stack(0x5e3af000,0x5e400000)]
+  0x5f92b800 JavaThread "Service Thread" daemon [_thread_blocked, id=2715, stack(0x5f4b0000,0x5f501000)]
+  0x5f929c00 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=2714, stack(0x5f501000,0x5f582000)]
+  0x5f927c00 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=2713, stack(0x5f582000,0x5f603000)]
+  0x5f926000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2712, stack(0x5f603000,0x5f654000)]
+  0x5f914400 JavaThread "Finalizer" daemon [_thread_blocked, id=2711, stack(0x5f7dd000,0x5f82e000)]
+  0x5f912c00 JavaThread "Reference Handler" daemon [_thread_blocked, id=2710, stack(0x5f82e000,0x5f87f000)]
+  0xb6206c00 JavaThread "main" [_thread_blocked, id=2706, stack(0xb6360000,0xb63b1000)]
+
+Other Threads:
+=>0x5f910400 VMThread [stack: 0x5f87f000,0x5f900000] [id=2709]
+  0x5f92dc00 WatcherThread [stack: 0x5f42f000,0x5f4b0000] [id=2716]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0xb62051f0] Threads_lock - owner thread: 0x5f910400
+[0xb6205600] Heap_lock - owner thread: 0x5e771800
+
+Heap
+ PSYoungGen      total 103424K, used 608K [0x9dbc0000, 0xa44c0000, 0xb3140000)
+  eden space 99328K, 0% used [0x9dbc0000,0x9dbc0000,0xa3cc0000)
+  from space 4096K, 14% used [0xa3cc0000,0xa3d58050,0xa40c0000)
+  to   space 4096K, 0% used [0xa40c0000,0xa40c0000,0xa44c0000)
+ ParOldGen       total 19968K, used 10799K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 54% used [0x73140000,0x73bcbff0,0x744c0000)
+ PSPermGen       total 16384K, used 15811K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 96% used [0x63140000,0x640b0c10,0x64140000)
+
+Card table byte_map: [0x62ebf000,0x63140000] byte_map_base: 0x62ba6600
+
+Polling page: 0xb76f8000
+
+Code Cache  [0xb3200000, 0xb3440000, 0xb6200000)
+ total_blobs=723 nmethods=339 adapters=338 free_code_cache=47407Kb largest_free_block=48493568
+
+Compilation events (10 events):
+Event: 14.684 Thread 0x5f927c00  359             com.google.common.collect.MapMakerInternalMap$StrongEntry::getHash (5 bytes)
+Event: 14.684 Thread 0x5f927c00 nmethod 359 0xb327d2c8 code [0xb327d3a0, 0xb327d3f0]
+Event: 14.754 Thread 0x5f927c00  360             java.util.HashMap$HashIterator::<init> (63 bytes)
+Event: 14.756 Thread 0x5f927c00 nmethod 360 0xb327d048 code [0xb327d140, 0xb327d210]
+Event: 14.780 Thread 0x5f927c00  361             com.google.common.collect.MapMakerInternalMap$StrongEntry::getNext (5 bytes)
+Event: 14.780 Thread 0x5f927c00 nmethod 361 0xb327cec8 code [0xb327cfa0, 0xb327cff0]
+Event: 14.851 Thread 0x5f927c00  362             java.util.HashMap::createEntry (39 bytes)
+Event: 14.853 Thread 0x5f927c00 nmethod 362 0xb33aa608 code [0xb33aa700, 0xb33aa870]
+Event: 14.996 Thread 0x5f929c00  363             com.google.common.collect.MapMakerInternalMap$2::poll (2 bytes)
+Event: 14.996 Thread 0x5f929c00 nmethod 363 0xb33aa488 code [0xb33aa560, 0xb33aa5b0]
+
+GC Heap History (10 events):
+Event: 12.086 GC heap after
+Heap after GC invocations=12 (full 0):
+ PSYoungGen      total 42496K, used 176K [0x9dbc0000, 0xa09c0000, 0xb3140000)
+  eden space 38656K, 0% used [0x9dbc0000,0x9dbc0000,0xa0180000)
+  from space 3840K, 4% used [0xa0580000,0xa05ac000,0xa0940000)
+  to   space 4096K, 0% used [0xa0180000,0xa0180000,0xa0580000)
+ ParOldGen       total 19968K, used 8311K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 41% used [0x73140000,0x7395dc28,0x744c0000)
+ PSPermGen       total 16384K, used 14283K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 87% used [0x63140000,0x63f32cf0,0x64140000)
+}
+Event: 12.370 GC heap before
+{Heap before GC invocations=13 (full 0):
+ PSYoungGen      total 42496K, used 38832K [0x9dbc0000, 0xa09c0000, 0xb3140000)
+  eden space 38656K, 100% used [0x9dbc0000,0xa0180000,0xa0180000)
+  from space 3840K, 4% used [0xa0580000,0xa05ac000,0xa0940000)
+  to   space 4096K, 0% used [0xa0180000,0xa0180000,0xa0580000)
+ ParOldGen       total 19968K, used 8311K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 41% used [0x73140000,0x7395dc28,0x744c0000)
+ PSPermGen       total 16384K, used 14286K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 87% used [0x63140000,0x63f339b0,0x64140000)
+Event: 12.372 GC heap after
+Heap after GC invocations=13 (full 0):
+ PSYoungGen      total 42752K, used 216K [0x9dbc0000, 0xa2040000, 0xb3140000)
+  eden space 38656K, 0% used [0x9dbc0000,0x9dbc0000,0xa0180000)
+  from space 4096K, 5% used [0xa0180000,0xa01b6010,0xa0580000)
+  to   space 4096K, 0% used [0xa1c40000,0xa1c40000,0xa2040000)
+ ParOldGen       total 19968K, used 8449K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 42% used [0x73140000,0x73980498,0x744c0000)
+ PSPermGen       total 16384K, used 14286K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 87% used [0x63140000,0x63f339b0,0x64140000)
+}
+Event: 12.773 GC heap before
+{Heap before GC invocations=14 (full 0):
+ PSYoungGen      total 42752K, used 38872K [0x9dbc0000, 0xa2040000, 0xb3140000)
+  eden space 38656K, 100% used [0x9dbc0000,0xa0180000,0xa0180000)
+  from space 4096K, 5% used [0xa0180000,0xa01b6010,0xa0580000)
+  to   space 4096K, 0% used [0xa1c40000,0xa1c40000,0xa2040000)
+ ParOldGen       total 19968K, used 8449K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 42% used [0x73140000,0x73980498,0x744c0000)
+ PSPermGen       total 16384K, used 14515K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 88% used [0x63140000,0x63f6cf20,0x64140000)
+Event: 12.777 GC heap after
+Heap after GC invocations=14 (full 0):
+ PSYoungGen      total 66048K, used 786K [0x9dbc0000, 0xa2040000, 0xb3140000)
+  eden space 61952K, 0% used [0x9dbc0000,0x9dbc0000,0xa1840000)
+  from space 4096K, 19% used [0xa1c40000,0xa1d049a0,0xa2040000)
+  to   space 4096K, 0% used [0xa1840000,0xa1840000,0xa1c40000)
+ ParOldGen       total 19968K, used 8633K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 43% used [0x73140000,0x739ae4e8,0x744c0000)
+ PSPermGen       total 16384K, used 14515K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 88% used [0x63140000,0x63f6cf20,0x64140000)
+}
+Event: 13.906 GC heap before
+{Heap before GC invocations=15 (full 0):
+ PSYoungGen      total 66048K, used 62738K [0x9dbc0000, 0xa2040000, 0xb3140000)
+  eden space 61952K, 100% used [0x9dbc0000,0xa1840000,0xa1840000)
+  from space 4096K, 19% used [0xa1c40000,0xa1d049a0,0xa2040000)
+  to   space 4096K, 0% used [0xa1840000,0xa1840000,0xa1c40000)
+ ParOldGen       total 19968K, used 8633K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 43% used [0x73140000,0x739ae4e8,0x744c0000)
+ PSPermGen       total 16384K, used 15789K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 96% used [0x63140000,0x640ab588,0x64140000)
+Event: 13.915 GC heap after
+Heap after GC invocations=15 (full 0):
+ PSYoungGen      total 66048K, used 2194K [0x9dbc0000, 0xa44c0000, 0xb3140000)
+  eden space 61952K, 0% used [0x9dbc0000,0x9dbc0000,0xa1840000)
+  from space 4096K, 53% used [0xa1840000,0xa1a64878,0xa1c40000)
+  to   space 4096K, 0% used [0xa40c0000,0xa40c0000,0xa44c0000)
+ ParOldGen       total 19968K, used 9129K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 45% used [0x73140000,0x73a2a4f8,0x744c0000)
+ PSPermGen       total 16384K, used 15789K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 96% used [0x63140000,0x640ab588,0x64140000)
+}
+Event: 14.307 GC heap before
+{Heap before GC invocations=16 (full 0):
+ PSYoungGen      total 66048K, used 64146K [0x9dbc0000, 0xa44c0000, 0xb3140000)
+  eden space 61952K, 100% used [0x9dbc0000,0xa1840000,0xa1840000)
+  from space 4096K, 53% used [0xa1840000,0xa1a64878,0xa1c40000)
+  to   space 4096K, 0% used [0xa40c0000,0xa40c0000,0xa44c0000)
+ ParOldGen       total 19968K, used 9129K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 45% used [0x73140000,0x73a2a4f8,0x744c0000)
+ PSPermGen       total 16384K, used 15800K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 96% used [0x63140000,0x640ae280,0x64140000)
+Event: 14.316 GC heap after
+Heap after GC invocations=16 (full 0):
+ PSYoungGen      total 103424K, used 144K [0x9dbc0000, 0xa44c0000, 0xb3140000)
+  eden space 99328K, 0% used [0x9dbc0000,0x9dbc0000,0xa3cc0000)
+  from space 4096K, 3% used [0xa40c0000,0xa40e4000,0xa44c0000)
+  to   space 4096K, 0% used [0xa3cc0000,0xa3cc0000,0xa40c0000)
+ ParOldGen       total 19968K, used 10667K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 53% used [0x73140000,0x73baaff0,0x744c0000)
+ PSPermGen       total 16384K, used 15800K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 96% used [0x63140000,0x640ae280,0x64140000)
+}
+Event: 15.059 GC heap before
+{Heap before GC invocations=17 (full 0):
+ PSYoungGen      total 103424K, used 99472K [0x9dbc0000, 0xa44c0000, 0xb3140000)
+  eden space 99328K, 100% used [0x9dbc0000,0xa3cc0000,0xa3cc0000)
+  from space 4096K, 3% used [0xa40c0000,0xa40e4000,0xa44c0000)
+  to   space 4096K, 0% used [0xa3cc0000,0xa3cc0000,0xa40c0000)
+ ParOldGen       total 19968K, used 10667K [0x73140000, 0x744c0000, 0x9dbc0000)
+  object space 19968K, 53% used [0x73140000,0x73baaff0,0x744c0000)
+ PSPermGen       total 16384K, used 15811K [0x63140000, 0x64140000, 0x73140000)
+  object space 16384K, 96% used [0x63140000,0x640b0c10,0x64140000)
+
+Deoptimization events (10 events):
+Event: 12.987 Thread 0x5e771800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb3291ce4 method=sun.misc.URLClassPath.getLoader(I)Lsun/misc/URLClassPath$Loader; @ 150
+Event: 13.379 Thread 0x5e771800 Uncommon trap: reason=null_check action=make_not_entrant pc=0xb339bed0 method=groovyjarjarantlr.CharScanner.testLiteralsTable(I)I @ 32
+Event: 14.370 Thread 0x5e771800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xb33b65f4 method=org.codehaus.groovy.control.ResolveVisitor.resolveNestedClass(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 113
+Event: 14.370 Thread 0x5e771800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xb33ab424 method=org.codehaus.groovy.control.ResolveVisitor.resolveFromCompileUnit(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 16
+Event: 14.370 Thread 0x5e771800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xb33b65f4 method=org.codehaus.groovy.control.ResolveVisitor.resolveNestedClass(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 113
+Event: 14.370 Thread 0x5e771800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xb33ab424 method=org.codehaus.groovy.control.ResolveVisitor.resolveFromCompileUnit(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 16
+Event: 14.370 Thread 0x5e771800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xb33b65f4 method=org.codehaus.groovy.control.ResolveVisitor.resolveNestedClass(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 113
+Event: 14.370 Thread 0x5e771800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xb33ab424 method=org.codehaus.groovy.control.ResolveVisitor.resolveFromCompileUnit(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 16
+Event: 14.371 Thread 0x5e771800 Uncommon trap: reason=unreached action=reinterpret pc=0xb33b5b88 method=org.codehaus.groovy.ast.ClassNode.getCompileUnit()Lorg/codehaus/groovy/ast/CompileUnit; @ 26
+Event: 14.372 Thread 0x5e771800 Uncommon trap: reason=unreached action=reinterpret pc=0xb32bac8c method=org.codehaus.groovy.ast.ClassNode.redirect()Lorg/codehaus/groovy/ast/ClassNode; @ 4
+
+Internal exceptions (10 events):
+Event: 15.058 Thread 0x5e771800 Threw 0xa3c9b530 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.058 Thread 0x5e771800 Threw 0xa3ca8ce8 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.058 Thread 0x5e771800 Threw 0xa3ca9e98 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.058 Thread 0x5e771800 Threw 0xa3caae28 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.058 Thread 0x5e771800 Threw 0xa3cabc50 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.058 Thread 0x5e771800 Threw 0xa3cac8d8 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.058 Thread 0x5e771800 Threw 0xa3cb2270 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.059 Thread 0x5e771800 Threw 0xa3cbde78 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.059 Thread 0x5e771800 Threw 0xa3cbee08 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+Event: 15.059 Thread 0x5e771800 Threw 0xa3cbfbc8 at /build/java7-openjdk/src/icedtea-2.5.4/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1284
+
+Events (10 events):
+Event: 15.058 loading class 0x09598878 done
+Event: 15.058 loading class 0x09598878
+Event: 15.058 loading class 0x09598878 done
+Event: 15.058 loading class 0x095988d0
+Event: 15.058 loading class 0x095988d0 done
+Event: 15.058 loading class 0x095988d0
+Event: 15.058 loading class 0x095988d0 done
+Event: 15.059 loading class 0x09598920
+Event: 15.059 loading class 0x09598920 done
+Event: 15.059 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:01 1199653    /usr/lib/jvm/java-7-openjdk/jre/bin/java
+08049000-0804a000 rw-p 00000000 08:01 1199653    /usr/lib/jvm/java-7-openjdk/jre/bin/java
+0901d000-098cd000 rw-p 00000000 00:00 0          [heap]
+5dc00000-5dcf9000 rw-p 00000000 00:00 0 
+5dcf9000-5dd00000 ---p 00000000 00:00 0 
+5dd63000-5de1d000 r--s 00fb6000 08:06 5898324    /home/cosmin/.gradle/caches/jars-1/4ubxvm6cvkptn01nmlhp3vxjv7388k/openapi.jar
+5de1d000-5de45000 r--s 001cf000 08:06 5898318    /home/cosmin/.gradle/caches/jars-1/87eo0lrvp84r6dbxjq018wy66es2era/guava-jdk5-17.0.jar
+5de45000-5de48000 ---p 00000000 00:00 0 
+5de48000-5de96000 rwxp 00000000 00:00 0          [stack:2728]
+5de96000-5df00000 r--s 0069e000 08:01 2104914    /usr/lib/jvm/java-7-openjdk/lib/tools.jar
+5dfe5000-5dfe8000 ---p 00000000 00:00 0 
+5dfe8000-5e000000 rwxp 00000000 00:00 0          [stack:2730]
+5e000000-5e029000 rw-p 00000000 00:00 0 
+5e029000-5e100000 ---p 00000000 00:00 0 
+5e10d000-5e110000 ---p 00000000 00:00 0 
+5e110000-5e15e000 rwxp 00000000 00:00 0          [stack:2726]
+5e15e000-5e161000 ---p 00000000 00:00 0 
+5e161000-5e1af000 rwxp 00000000 00:00 0          [stack:2723]
+5e1af000-5e1b2000 ---p 00000000 00:00 0 
+5e1b2000-5e200000 rwxp 00000000 00:00 0          [stack:2722]
+5e200000-5e2ff000 rw-p 00000000 00:00 0 
+5e2ff000-5e300000 ---p 00000000 00:00 0 
+5e30d000-5e310000 ---p 00000000 00:00 0 
+5e310000-5e35e000 rwxp 00000000 00:00 0          [stack:2721]
+5e35e000-5e361000 ---p 00000000 00:00 0 
+5e361000-5e3af000 rwxp 00000000 00:00 0          [stack:2720]
+5e3af000-5e3b2000 ---p 00000000 00:00 0 
+5e3b2000-5e400000 rwxp 00000000 00:00 0          [stack:2719]
+5e400000-5e4fa000 rw-p 00000000 00:00 0 
+5e4fa000-5e500000 ---p 00000000 00:00 0 
+5e512000-5e513000 r--p 00000000 00:00 0 
+5e513000-5e514000 r--s 00000000 08:06 5898328    /home/cosmin/.gradle/caches/jars-1/dg22azhabc6tsc1i8xni15giz1bnssh/gradle-appengine-builder-model-0.1.0.jar
+5e514000-5e516000 r--s 00004000 08:06 5898326    /home/cosmin/.gradle/caches/jars-1/qtven7mi8z3hsfxxq8clnrju24s99pt/builder-model-1.1.0-rc1.jar
+5e516000-5e518000 r--s 00005000 08:06 5898322    /home/cosmin/.gradle/caches/jars-1/bhwj5r0qcaq4pqpfen2765w10ydne55/gradle-tooling-extension-api.jar
+5e518000-5e51e000 r--s 00026000 08:06 5898320    /home/cosmin/.gradle/caches/jars-1/qlb402qqdb9mu9614i3hr843cfch7zw/gradle-base-services-2.2.jar
+5e51e000-5e527000 r--s 0002c000 08:06 5898316    /home/cosmin/.gradle/caches/jars-1/ltkluv74baem3ersp41z8rutm6he5v5/gradle-tooling-api-2.2.jar
+5e527000-5e52b000 r-xp 00000000 00:1e 41561      /tmp/native-platform5689558769786245048dir/libnative-platform.so
+5e52b000-5e52c000 rw-p 00003000 00:1e 41561      /tmp/native-platform5689558769786245048dir/libnative-platform.so
+5e52c000-5e530000 r--s 0004d000 08:01 1199597    /usr/lib/jvm/java-7-openjdk/jre/lib/jsse.jar
+5e530000-5e531000 r--s 00001000 08:06 3595612    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-plugin-development-2.2.1.jar
+5e531000-5e533000 r--s 00002000 08:06 3595533    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-cunit-2.2.1.jar
+5e533000-5e538000 r--s 00036000 08:06 3595601    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-ide-native-2.2.1.jar
+5e538000-5e53d000 r--s 00013000 08:06 3595571    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-language-native-2.2.1.jar
+5e53d000-5e548000 r--s 0004d000 08:06 3595584    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-platform-native-2.2.1.jar
+5e548000-5e54a000 r--s 00008000 08:06 3595555    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-language-groovy-2.2.1.jar
+5e54a000-5e54f000 r--s 00022000 08:06 3595620    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-language-java-2.2.1.jar
+5e54f000-5e552000 r--s 00007000 08:06 3595589    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-language-jvm-2.2.1.jar
+5e552000-5e555000 r--s 00009000 08:06 3595558    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-platform-jvm-2.2.1.jar
+5e555000-5e55a000 r--s 00018000 08:06 3595536    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-platform-base-2.2.1.jar
+5e55a000-5e55f000 r--s 00026000 08:06 3595622    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-build-init-2.2.1.jar
+5e55f000-5e562000 r--s 0001d000 08:06 3595602    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-jacoco-2.2.1.jar
+5e562000-5e565000 r--s 0000d000 08:06 3595594    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-ivy-2.2.1.jar
+5e565000-5e567000 r--s 00002000 08:06 3595596    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-publish-2.2.1.jar
+5e567000-5e569000 r--s 00005000 08:06 3595563    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jatl-0.2.2.jar
+5e569000-5e56b000 r--s 0000f000 08:06 3595591    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-reporting-2.2.1.jar
+5e56b000-5e570000 r--s 00034000 08:06 3595598    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-diagnostics-2.2.1.jar
+5e570000-5e577000 r--s 00090000 08:06 3595540    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-build-comparison-2.2.1.jar
+5e577000-5e57e000 r--s 00035000 08:06 3595579    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/simple-4.1.21.jar
+5e57e000-5e58a000 r--s 00100000 08:06 3595610    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/rhino-1.7R3.jar
+5e58a000-5e58f000 r--s 0001f000 08:06 3595597    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-javascript-2.2.1.jar
+5e58f000-5e591000 r--s 0000e000 08:06 3595595    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-ear-2.2.1.jar
+5e591000-5e595000 r--s 00025000 08:06 3595532    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/bcpg-jdk15-1.46.jar
+5e595000-5e598000 r--s 0001d000 08:06 3595543    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-signing-2.2.1.jar
+5e598000-5e599000 r--s 00002000 08:06 3595525    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/sonar-batch-bootstrapper-2.9.jar
+5e599000-5e59c000 r--s 00018000 08:06 3595569    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-sonar-2.2.1.jar
+5e59c000-5e59f000 r--s 00017000 08:06 3595554    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-scala-2.2.1.jar
+5e59f000-5e5a1000 r--s 0000e000 08:06 3595560    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-announce-2.2.1.jar
+5e5a1000-5e5af000 r--s 000bc000 08:06 3595537    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-ide-2.2.1.jar
+5e5af000-5e5b1000 r--s 00000000 08:06 3595603    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/plexus-component-annotations-1.5.2.jar
+5e5b1000-5e5b4000 r--s 0000c000 08:06 3595559    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/pmaven-groovy-0.8-20100325.jar
+5e5b4000-5e5b5000 r--s 00004000 08:06 3595580    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/pmaven-common-0.8-20100325.jar
+5e5b5000-5e5b9000 r--s 0001e000 08:06 3595577    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-maven-2.2.1.jar
+5e5b9000-5e5d1000 r--s 0013b000 08:06 3595614    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/bndlib-2.1.0.jar
+5e5d1000-5e5d3000 r--s 00004000 08:06 3595547    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-osgi-2.2.1.jar
+5e5d3000-5e5d8000 r--s 00068000 08:06 3595578    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/antlr-2.7.7.jar
+5e5d8000-5e5da000 r--s 00004000 08:06 3595600    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-antlr-2.2.1.jar
+5e5da000-5e5dd000 r--s 0001e000 08:06 3595573    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jsp-api-2.1-6.1.14.jar
+5e5dd000-5e600000 r--s 00344000 08:06 3595604    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/core-3.1.1.jar
+5e600000-5e6f9000 rw-p 00000000 00:00 0 
+5e6f9000-5e700000 ---p 00000000 00:00 0 
+5e700000-5e7e5000 rw-p 00000000 00:00 0 
+5e7e5000-5e800000 ---p 00000000 00:00 0 
+5e800000-5e900000 rw-p 00000000 00:00 0 
+5e900000-5e9fd000 rw-p 00000000 00:00 0 
+5e9fd000-5ea00000 ---p 00000000 00:00 0 
+5ea00000-5ea01000 r--s 00002000 08:06 3595609    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/ant-antlr-1.9.3.jar
+5ea01000-5ea02000 r--s 00006000 08:06 3595623    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jetty-naming-6.1.25.jar
+5ea02000-5ea03000 r--s 00002000 08:06 3595552    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/geronimo-annotation_1.0_spec-1.0.jar
+5ea03000-5ea05000 r--s 00002000 08:06 3595565    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jetty-annotations-6.1.25.jar
+5ea05000-5ea16000 r--s 000ea000 08:06 3595585    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jsp-2.1-6.1.14.jar
+5ea16000-5ea18000 r--s 0000d000 08:06 3595535    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jetty-plus-6.1.25.jar
+5ea18000-5ea1a000 r--s 0001f000 08:06 3595557    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/servlet-api-2.5-20081211.jar
+5ea1a000-5ea1e000 r--s 00028000 08:06 3595526    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jetty-util-6.1.25.jar
+5ea1e000-5ea25000 r--s 0007d000 08:06 3595587    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jetty-6.1.25.jar
+5ea25000-5ea27000 r--s 00009000 08:06 3595546    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-jetty-2.2.1.jar
+5ea27000-5ea2c000 r--s 00041000 08:06 3595549    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-code-quality-2.2.1.jar
+5ea2c000-5ea2e000 r--s 00009000 08:06 3595553    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/hamcrest-core-1.3.jar
+5ea2e000-5ea34000 r--s 00033000 08:06 3595590    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/snakeyaml-1.6.jar
+5ea34000-5ea36000 r--s 00006000 08:06 3595538    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jcommander-1.12.jar
+5ea36000-5ea3b000 r--s 00040000 08:06 3595599    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/bsh-2.0b4.jar
+5ea3b000-5ea3d000 r--s 00009000 08:06 3595530    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/commons-cli-1.2.jar
+5ea3d000-5ea46000 r--s 00089000 08:06 3595550    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/testng-6.3.1.jar
+5ea46000-5ea4c000 r--s 00036000 08:06 3595574    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/junit-4.11.jar
+5ea4c000-5ea58000 r--s 00075000 08:06 3595544    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-plugins-2.2.1.jar
+5ea58000-5ea5b000 r--s 00011000 08:06 3595527    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-plugin-use-2.2.1.jar
+5ea5b000-5ea73000 r--s 00115000 08:06 3595582    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/xercesImpl-2.9.1.jar
+5ea73000-5ea7b000 r--s 00028000 08:06 3595566    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/xml-apis-1.3.04.jar
+5ea7b000-5ea81000 r--s 0005b000 08:06 3595529    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jcifs-1.3.17.jar
+5ea81000-5ea87000 r--s 00031000 08:06 3595539    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/httpcore-4.2.2.jar
+5ea87000-5ea8d000 r--s 00033000 08:06 3595528    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/commons-codec-1.6.jar
+5ea8d000-5ea90000 r--s 0001c000 08:06 3595618    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/nekohtml-1.9.14.jar
+5ea90000-5ea99000 r--s 00060000 08:06 3595551    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/httpclient-4.2.2.jar
+5ea99000-5eac1000 r--s 00194000 08:06 3595564    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/bcprov-jdk15-1.46.jar
+5eac1000-5eac5000 r--s 0001d000 08:06 3595605    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/xbean-reflect-3.4.jar
+5eac5000-5eaca000 r--s 0002a000 08:06 3595615    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gson-2.2.4.jar
+5eaca000-5eace000 r--s 0003d000 08:06 3595570    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jsch-0.1.51.jar
+5eace000-5eae7000 r--s 00129000 08:06 3595611    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/maven-ant-tasks-2.1.3.jar
+5eae7000-5eaf6000 r--s 000d9000 08:06 3595593    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/ivy-2.2.0.jar
+5eaf6000-5eafa000 r--s 0001e000 08:06 3595567    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-aether-impl-1.13.1.jar
+5eafa000-5eafd000 r--s 00027000 08:06 3595572    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-model-3.0.4.jar
+5eafd000-5eb00000 r--s 0000b000 08:06 3595562    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-artifact-3.0.4.jar
+5eb00000-5ebfd000 rw-p 00000000 00:00 0 
+5ebfd000-5ec00000 ---p 00000000 00:00 0 
+5ec00000-5ec02000 r--s 00007000 08:06 3595608    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-resources-http-2.2.1.jar
+5ec02000-5ec06000 r--s 0001e000 08:06 3595542    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-aether-util-1.13.1.jar
+5ec06000-5ec08000 r--s 00007000 08:06 3595616    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-wagon-http-shared4-2.4.jar
+5ec08000-5ec15000 r--s 00083000 08:06 3595541    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-core-3.0.4.jar
+5ec15000-5ec17000 r--s 00003000 08:06 3595592    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-aether-spi-1.13.1.jar
+5ec17000-5ec19000 r--s 00009000 08:06 3595581    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-settings-builder-3.0.4.jar
+5ec19000-5ec1d000 r--s 00014000 08:06 3595556    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-aether-api-1.13.1.jar
+5ec1d000-5ec24000 r--s 00042000 08:06 3595545    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-compat-3.0.4.jar
+5ec24000-5ec26000 r--s 00006000 08:06 3595561    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-aether-connector-wagon-1.13.1.jar
+5ec26000-5ed4a000 r-xp 00000000 08:01 273733     /usr/lib/libglib-2.0.so.0.4200.0
+5ed4a000-5ed4b000 r--p 00124000 08:01 273733     /usr/lib/libglib-2.0.so.0.4200.0
+5ed4b000-5ed4c000 rw-p 00125000 08:01 273733     /usr/lib/libglib-2.0.so.0.4200.0
+5ed4c000-5eefb000 r-xp 00000000 08:01 273737     /usr/lib/libgio-2.0.so.0.4200.0
+5eefb000-5eefe000 r--p 001ae000 08:01 273737     /usr/lib/libgio-2.0.so.0.4200.0
+5eefe000-5eeff000 rw-p 001b1000 08:01 273737     /usr/lib/libgio-2.0.so.0.4200.0
+5eeff000-5ef00000 rw-p 00000000 00:00 0 
+5ef00000-5f000000 rw-p 00000000 00:00 0 
+5f000000-5f001000 r--s 00002000 08:06 3595606    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-wagon-http-2.4.jar
+5f001000-5f003000 r--s 00000000 08:06 3595548    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-plexus-component-annotations-1.5.5.jar
+5f003000-5f005000 r--s 00006000 08:06 3595534    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-plexus-sec-dispatcher-1.3.jar
+5f005000-5f00a000 r--s 00022000 08:06 3595607    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-model-builder-3.0.4.jar
+5f00a000-5f00c000 r--s 0000b000 08:06 3595576    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-plugin-api-3.0.4.jar
+5f00c000-5f010000 r--s 00035000 08:06 3595617    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-plexus-utils-2.0.6.jar
+5f010000-5f018000 r--s 00031000 08:06 3595588    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-plexus-container-default-1.5.5.jar
+5f018000-5f02c000 r-xp 00000000 08:01 265844     /usr/lib/libresolv-2.20.so
+5f02c000-5f02d000 ---p 00014000 08:01 265844     /usr/lib/libresolv-2.20.so
+5f02d000-5f02e000 r--p 00014000 08:01 265844     /usr/lib/libresolv-2.20.so
+5f02e000-5f02f000 rw-p 00015000 08:01 265844     /usr/lib/libresolv-2.20.so
+5f02f000-5f031000 rw-p 00000000 00:00 0 
+5f031000-5f0a2000 r-xp 00000000 08:01 273525     /usr/lib/libpcre.so.1.2.4
+5f0a2000-5f0a3000 r--p 00070000 08:01 273525     /usr/lib/libpcre.so.1.2.4
+5f0a3000-5f0a4000 rw-p 00071000 08:01 273525     /usr/lib/libpcre.so.1.2.4
+5f0a4000-5f0fe000 r-xp 00000000 08:01 273736     /usr/lib/libgobject-2.0.so.0.4200.0
+5f0fe000-5f0ff000 r--p 0005a000 08:01 273736     /usr/lib/libgobject-2.0.so.0.4200.0
+5f0ff000-5f100000 rw-p 0005b000 08:01 273736     /usr/lib/libgobject-2.0.so.0.4200.0
+5f100000-5f1fa000 rw-p 00000000 00:00 0 
+5f1fa000-5f200000 ---p 00000000 00:00 0 
+5f200000-5f203000 r--s 0000a000 08:06 3595531    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-plexus-classworlds-2.4.jar
+5f203000-5f205000 r--s 0000e000 08:06 3595619    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-plexus-interpolation-1.14.jar
+5f205000-5f208000 r-xp 00000000 08:01 273734     /usr/lib/libgmodule-2.0.so.0.4200.0
+5f208000-5f209000 r--p 00002000 08:01 273734     /usr/lib/libgmodule-2.0.so.0.4200.0
+5f209000-5f20a000 rw-p 00003000 08:01 273734     /usr/lib/libgmodule-2.0.so.0.4200.0
+5f20a000-5f210000 r-xp 00000000 08:01 273655     /usr/lib/libffi.so.6.0.2
+5f210000-5f211000 r--p 00005000 08:01 273655     /usr/lib/libffi.so.6.0.2
+5f211000-5f212000 rw-p 00006000 08:01 273655     /usr/lib/libffi.so.6.0.2
+5f212000-5f214000 r--s 00002000 08:06 3595568    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-plexus-cipher-1.7.jar
+5f214000-5f216000 r--s 0000c000 08:06 3595613    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-wagon-provider-api-2.4.jar
+5f216000-5f218000 r--s 0000d000 08:06 3595621    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-aether-provider-3.0.4.jar
+5f218000-5f219000 r--s 00007000 08:06 3595575    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-repository-metadata-3.0.4.jar
+5f219000-5f21a000 r--s 0000b000 08:06 3595586    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/jarjar-maven-settings-3.0.4.jar
+5f21a000-5f232000 r--s 000b5000 08:06 3595583    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/plugins/gradle-dependency-management-2.2.1.jar
+5f232000-5f242000 r-xp 00000000 08:01 1199621    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libnio.so
+5f242000-5f243000 rw-p 0000f000 08:01 1199621    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libnio.so
+5f243000-5f259000 r-xp 00000000 08:01 1199620    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libnet.so
+5f259000-5f25a000 rw-p 00015000 08:01 1199620    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libnet.so
+5f25a000-5f25b000 r--s 00005000 08:06 3484525    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-wrapper-2.2.1.jar
+5f25b000-5f264000 r--s 0002c000 08:06 3484530    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-tooling-api-2.2.1.jar
+5f264000-5f266000 r--s 00002000 08:06 3484540    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-open-api-2.2.1.jar
+5f266000-5f26c000 r--s 00032000 08:06 3484533    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/jaxen-1.1.jar
+5f26c000-5f271000 r--s 00048000 08:06 3484504    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/dom4j-1.6.1.jar
+5f271000-5f27c000 r--s 00059000 08:06 3484543    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-ui-2.2.1.jar
+5f27c000-5f27e000 r--s 00006000 08:06 3484507    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-resources-2.2.1.jar
+5f27e000-5f280000 r--s 00007000 08:06 3484535    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/objenesis-1.2.jar
+5f280000-5f282000 r--s 00000000 08:06 3484536    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/minlog-1.2.jar
+5f282000-5f284000 r--s 0000f000 08:06 3484541    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/reflectasm-1.07-shaded.jar
+5f284000-5f288000 r--s 00026000 08:06 3484547    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/kryo-2.20.jar
+5f288000-5f291000 r--s 00039000 08:06 3484532    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-messaging-2.2.1.jar
+5f291000-5f292000 r--s 00003000 08:06 3484545    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-freebsd-amd64-0.10.jar
+5f292000-5f293000 r--s 00003000 08:06 3484527    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-freebsd-i386-0.10.jar
+5f293000-5f294000 r--s 00005000 08:06 3484531    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-windows-i386-0.10.jar
+5f294000-5f295000 r--s 00005000 08:06 3484500    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-windows-amd64-0.10.jar
+5f295000-5f300000 r--s 00685000 08:06 3484501    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/groovy-all-2.3.6.jar
+5f300000-5f3ff000 rw-p 00000000 00:00 0 
+5f3ff000-5f400000 ---p 00000000 00:00 0 
+5f400000-5f401000 r--s 00003000 08:06 3484503    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-linux-i386-0.10.jar
+5f401000-5f402000 r--s 00003000 08:06 3484511    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-linux-amd64-0.10.jar
+5f402000-5f403000 r--s 00002000 08:06 3484548    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-osx-amd64-0.10.jar
+5f403000-5f404000 r--s 00002000 08:06 3484523    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-osx-i386-0.10.jar
+5f404000-5f406000 r--s 00008000 08:06 3484522    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/jansi-1.2.1.jar
+5f406000-5f409000 r--s 0000d000 08:06 3484537    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/native-platform-0.10.jar
+5f409000-5f40d000 r--s 000e4000 08:06 3484502    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/jna-3.2.7.jar
+5f40d000-5f40f000 r--s 00008000 08:06 3484521    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-native-2.2.1.jar
+5f40f000-5f411000 r--s 00005000 08:06 3484544    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-cli-2.2.1.jar
+5f411000-5f413000 r--s 00003000 08:06 3484509    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-base-services-groovy-2.2.1.jar
+5f413000-5f417000 r--s 0001b000 08:06 3484513    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-model-core-2.2.1.jar
+5f417000-5f421000 r--s 0005d000 08:06 3484516    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/logback-core-1.0.13.jar
+5f421000-5f42f000 r--s 0007f000 08:06 3484539    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/commons-collections-3.2.1.jar
+5f42f000-5f430000 ---p 00000000 00:00 0 
+5f430000-5f501000 rwxp 00000000 00:00 0          [stack:2715]
+5f501000-5f502000 ---p 00000000 00:00 0 
+5f502000-5f582000 rwxp 00000000 00:00 0          [stack:2714]
+5f582000-5f583000 ---p 00000000 00:00 0 
+5f583000-5f654000 rwxp 00000000 00:00 0          [stack:2712]
+5f654000-5f7dd000 r--p 00000000 08:01 280743     /usr/lib/locale/locale-archive
+5f7dd000-5f87f000 rwxp 00000000 00:00 0          [stack:2710]
+5f87f000-5f880000 ---p 00000000 00:00 0 
+5f880000-5f900000 rwxp 00000000 00:00 0          [stack:2709]
+5f900000-5f9ff000 rw-p 00000000 00:00 0 
+5f9ff000-5fa00000 ---p 00000000 00:00 0 
+5fa00000-5fa02000 r--s 0000a000 08:06 3484517    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-model-groovy-2.2.1.jar
+5fa02000-5fa08000 r--s 0003b000 08:06 3484506    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/logback-classic-1.0.13.jar
+5fa08000-5fa30000 r--s 001cf000 08:06 3484519    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/guava-jdk5-17.0.jar
+5fa30000-5fa4f000 r--s 001cc000 08:06 3484508    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/ant-1.9.3.jar
+5fa4f000-5fc00000 r--s 01d23000 08:01 1199595    /usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar
+5fc00000-62900000 rw-p 00000000 00:00 0 
+62900000-629f7000 rw-p 00000000 00:00 0 
+629f7000-62a00000 ---p 00000000 00:00 0 
+62a00000-62a01000 r--s 00000000 08:06 3484526    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-docs-2.2.1.jar
+62a01000-62a03000 r--s 00003000 08:06 3484510    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/jcl-over-slf4j-1.7.7.jar
+62a03000-62a04000 r--s 00005000 08:06 3484538    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/log4j-over-slf4j-1.7.7.jar
+62a04000-62a05000 r--s 00000000 08:06 3484529    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/javax.inject-1.jar
+62a05000-62a36000 r--s 00191000 08:06 3484514    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-core-2.2.1.jar
+62a36000-62a7f000 rw-p 00000000 00:00 0 
+62a7f000-62a80000 ---p 00000000 00:00 0 
+62a80000-62b00000 rwxp 00000000 00:00 0          [stack:2708]
+62b00000-62b26000 rw-p 00000000 00:00 0 
+62b26000-62c00000 ---p 00000000 00:00 0 
+62c00000-62c03000 r--s 0001b000 08:06 3484512    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/jarjar-1.3.jar
+62c03000-62c05000 r--s 00000000 08:06 3484534    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/jul-to-slf4j-1.7.7.jar
+62c05000-62c0a000 r--s 00041000 08:06 3484505    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/commons-lang-2.6.jar
+62c0a000-62c0d000 r--s 00018000 08:06 3484546    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/commons-io-1.4.jar
+62c0d000-62c68000 rw-p 00000000 00:00 0 
+62c68000-62c69000 ---p 00000000 00:00 0 
+62c69000-62ce9000 rwxp 00000000 00:00 0          [stack:2707]
+62ce9000-62cf1000 rw-p 00000000 00:00 0 
+62cf1000-62d69000 rw-p 00000000 00:00 0 
+62d69000-62d73000 rw-p 00000000 00:00 0 
+62d73000-62ebf000 rw-p 00000000 00:00 0 
+62ebf000-62ec7000 rw-p 00000000 00:00 0 
+62ec7000-62f3f000 rw-p 00000000 00:00 0 
+62f3f000-62f49000 rw-p 00000000 00:00 0 
+62f49000-63094000 rw-p 00000000 00:00 0 
+63094000-630c9000 rw-p 00000000 00:00 0 
+630c9000-6313f000 rw-p 00000000 00:00 0 
+6313f000-64140000 rw-p 00000000 00:00 0 
+64140000-73140000 rw-p 00000000 00:00 0 
+73140000-744c0000 rw-p 00000000 00:00 0 
+744c0000-9dbc0000 rw-p 00000000 00:00 0 
+9dbc0000-a44c0000 rw-p 00000000 00:00 0 
+a6bc0000-b3140000 rw-p 00000000 00:00 0 
+b3140000-b3149000 rw-p 00000000 00:00 0 
+b3149000-b3200000 rw-p 00000000 00:00 0 
+b3200000-b3440000 rwxp 00000000 00:00 0 
+b3440000-b62fc000 rw-p 00000000 00:00 0 
+b62fc000-b6300000 ---p 00000000 00:00 0 
+b6300000-b6305000 r--s 00036000 08:06 3484528    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/asm-all-5.0.3.jar
+b6305000-b630b000 r--s 00026000 08:06 3484524    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-base-services-2.2.1.jar
+b630b000-b6313000 r--s 0003c000 08:06 3484542    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/gradle-launcher-2.2.1.jar
+b6313000-b6331000 rw-p 00000000 00:00 0 
+b6331000-b6356000 r-xp 00000000 08:01 1199618    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libjava.so
+b6356000-b6357000 rw-p 00025000 08:01 1199618    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libjava.so
+b6357000-b635e000 r-xp 00000000 08:01 265882     /usr/lib/librt-2.20.so
+b635e000-b635f000 r--p 00007000 08:01 265882     /usr/lib/librt-2.20.so
+b635f000-b6360000 rw-p 00008000 08:01 265882     /usr/lib/librt-2.20.so
+b6360000-b6361000 ---p 00000000 00:00 0 
+b6361000-b63b1000 rwxp 00000000 00:00 0          [stack:2706]
+b63b1000-b63cd000 r-xp 00000000 08:01 269145     /usr/lib/libgcc_s.so.1
+b63cd000-b63ce000 rw-p 0001b000 08:01 269145     /usr/lib/libgcc_s.so.1
+b63ce000-b6419000 r-xp 00000000 08:01 265869     /usr/lib/libm-2.20.so
+b6419000-b641a000 r--p 0004a000 08:01 265869     /usr/lib/libm-2.20.so
+b641a000-b641b000 rw-p 0004b000 08:01 265869     /usr/lib/libm-2.20.so
+b641b000-b6504000 r-xp 00000000 08:01 269151     /usr/lib/libstdc++.so.6.0.20
+b6504000-b6508000 r--p 000e9000 08:01 269151     /usr/lib/libstdc++.so.6.0.20
+b6508000-b6509000 rw-p 000ed000 08:01 269151     /usr/lib/libstdc++.so.6.0.20
+b6509000-b6510000 rw-p 00000000 00:00 0 
+b6510000-b7051000 r-xp 00000000 08:01 1199652    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/server/libjvm.so
+b7051000-b70b9000 rw-p 00b40000 08:01 1199652    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/server/libjvm.so
+b70b9000-b74d6000 rw-p 00000000 00:00 0 
+b74d6000-b74eb000 r-xp 00000000 08:01 268895     /usr/lib/libz.so.1.2.8
+b74eb000-b74ec000 r--p 00014000 08:01 268895     /usr/lib/libz.so.1.2.8
+b74ec000-b74ed000 rw-p 00015000 08:01 268895     /usr/lib/libz.so.1.2.8
+b74ed000-b769e000 r-xp 00000000 08:01 265870     /usr/lib/libc-2.20.so
+b769e000-b76a1000 r--p 001b0000 08:01 265870     /usr/lib/libc-2.20.so
+b76a1000-b76a3000 rw-p 001b3000 08:01 265870     /usr/lib/libc-2.20.so
+b76a3000-b76a6000 rw-p 00000000 00:00 0 
+b76a6000-b76a9000 r-xp 00000000 08:01 265843     /usr/lib/libdl-2.20.so
+b76a9000-b76aa000 r--p 00002000 08:01 265843     /usr/lib/libdl-2.20.so
+b76aa000-b76ab000 rw-p 00003000 08:01 265843     /usr/lib/libdl-2.20.so
+b76ab000-b76b7000 r-xp 00000000 08:01 2104865    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/jli/libjli.so
+b76b7000-b76b8000 rw-p 0000b000 08:01 2104865    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/jli/libjli.so
+b76b8000-b76d0000 r-xp 00000000 08:01 265850     /usr/lib/libpthread-2.20.so
+b76d0000-b76d1000 r--p 00017000 08:01 265850     /usr/lib/libpthread-2.20.so
+b76d1000-b76d2000 rw-p 00018000 08:01 265850     /usr/lib/libpthread-2.20.so
+b76d2000-b76d4000 rw-p 00000000 00:00 0 
+b76d4000-b76d5000 r--s 00000000 08:06 3484520    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/jcip-annotations-1.0.jar
+b76d5000-b76d7000 r--s 00006000 08:06 3484515    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/slf4j-api-1.7.7.jar
+b76d7000-b76d8000 r--s 00004000 08:06 3484518    /home/cosmin/programs/android-studio/gradle/gradle-2.2.1/lib/ant-launcher-1.9.3.jar
+b76d8000-b76e0000 r-xp 00000000 08:01 1199619    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libzip.so
+b76e0000-b76e1000 rw-p 00007000 08:01 1199619    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libzip.so
+b76e1000-b76e9000 rw-s 00000000 00:1e 41556      /tmp/hsperfdata_cosmin/2704
+b76e9000-b76f5000 r-xp 00000000 08:01 265845     /usr/lib/libnss_files-2.20.so
+b76f5000-b76f6000 r--p 0000b000 08:01 265845     /usr/lib/libnss_files-2.20.so
+b76f6000-b76f7000 rw-p 0000c000 08:01 265845     /usr/lib/libnss_files-2.20.so
+b76f7000-b76f8000 rw-p 00000000 00:00 0 
+b76f8000-b76f9000 ---p 00000000 00:00 0 
+b76f9000-b7704000 r-xp 00000000 08:01 1199617    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libverify.so
+b7704000-b7705000 rw-p 0000b000 08:01 1199617    /usr/lib/jvm/java-7-openjdk/jre/lib/i386/libverify.so
+b7705000-b7707000 r--p 00000000 00:00 0          [vvar]
+b7707000-b7708000 r-xp 00000000 00:00 0          [vdso]
+b7708000-b7729000 r-xp 00000000 08:01 265847     /usr/lib/ld-2.20.so
+b7729000-b772a000 rw-p 00000000 00:00 0 
+b772a000-b772b000 r--p 00021000 08:01 265847     /usr/lib/ld-2.20.so
+b772b000-b772c000 rw-p 00022000 08:01 265847     /usr/lib/ld-2.20.so
+bfd5f000-bfd60000 rwxp 00000000 00:00 0 
+bfd91000-bfdb2000 rwxp 00000000 00:00 0          [stack]
+bfdb2000-bfdb3000 rw-p 00000000 00:00 0 
+
+VM Arguments:
+jvm_args: -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: org.gradle.launcher.daemon.bootstrap.GradleDaemon 2.2.1 /home/cosmin/.gradle/daemon 10800000 941872f2-b0e6-48eb-84be-d9bc627c1d8b -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=/home/cosmin/programs/android-studio/bin/../lib/bootstrap.jar:/home/cosmin/programs/android-studio/bin/../lib/extensions.jar:/home/cosmin/programs/android-studio/bin/../lib/util.jar:/home/cosmin/programs/android-studio/bin/../lib/jdom.jar:/home/cosmin/programs/android-studio/bin/../lib/log4j.jar:/home/cosmin/programs/android-studio/bin/../lib/trove4j.jar:/home/cosmin/programs/android-studio/bin/../lib/jna.jar:/usr/lib/jvm/java-8-openjdk/lib/tools.jar
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/cosmin/.rvm/bin:/home/cosmin/.rvm/bin:/home/cosmin/Android/Sdk/tools/:/home/cosmin/programs/android-studio/bin/
+LD_LIBRARY_PATH=/home/cosmin/programs/android-studio/bin:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x7ebb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x7ebb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x66f790], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x66f790], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x66f790], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x66f790], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x66f5e0], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x66f840], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x66f840], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x66f840], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x66f840], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTRAP: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Linux
+uname:Linux 3.18.6-1-ARCH #1 SMP PREEMPT Sat Feb 7 08:59:29 CET 2015 i686
+libc:glibc 2.20 NPTL 2.20 
+rlimit: STACK 8192k, CORE 0k, NPROC 15055, NOFILE 4096, AS infinity
+load average:2.75 2.26 1.23
+
+/proc/meminfo:
+MemTotal:        1931220 kB
+MemFree:          105976 kB
+MemAvailable:      63260 kB
+Buffers:            1884 kB
+Cached:           191700 kB
+SwapCached:            0 kB
+Active:          1620072 kB
+Inactive:         123468 kB
+Active(anon):    1599864 kB
+Inactive(anon):   106764 kB
+Active(file):      20208 kB
+Inactive(file):    16704 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:       1049856 kB
+HighFree:          21640 kB
+LowTotal:         881364 kB
+LowFree:           84336 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:       1550148 kB
+Mapped:           135640 kB
+Shmem:            156432 kB
+Slab:              29704 kB
+SReclaimable:      14424 kB
+SUnreclaim:        15280 kB
+KernelStack:        2872 kB
+PageTables:         8768 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      965608 kB
+Committed_AS:    4107712 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       27480 kB
+VmallocChunk:      93780 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    466944 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       65528 kB
+DirectMap4M:      843776 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 23 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     T6670  @ 2.20GHz
+stepping	: 10
+microcode	: 0xa07
+cpu MHz		: 2201.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave lahf_lm ida dtherm tpr_shadow vnmi flexpriority
+bugs		:
+bogomips	: 4391.26
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     T6670  @ 2.20GHz
+stepping	: 10
+microcode	: 0xa07
+cpu MHz		: 1600.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave lahf_lm ida dtherm tpr_shadow vnmi flexpriority
+bugs		:
+bogomips	: 4391.26
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 1931220k(105976k free), swap 0k(0k free)
+
+vm_info: OpenJDK Server VM (24.75-b04) for linux-x86 JRE (1.7.0_75-b13), built on Jan 23 2015 12:19:02 by "builduser" with gcc 4.9.2 20141224 (prerelease)
+
+time: Sat Apr 11 20:06:17 2015
+elapsed time: 15 seconds
+

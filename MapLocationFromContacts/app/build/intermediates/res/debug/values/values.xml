@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/cosmin/AndroidstudioProjects/MapLocationFromContacts/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="find_address_string">"Find Address in Contacts"</string>
+    <string name="no_address_string">"This contact has no address"</string>
+</resources>
